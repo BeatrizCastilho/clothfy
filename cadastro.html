@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastro | Atelier Lux</title>
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+    <div class="box-auth">
+        <h2>Fazer Parte</h2>
+        <p style="color: var(--texto-mutado); font-size: 0.85rem; margin-bottom: 30px;">Crie seu perfil no ecossistema Lux.</p>
+        <form id="form-cadastro">
+            <div class="input-group">
+                <label>Nome</label>
+                <input type="text" id="cad-nome" required>
+            </div>
+            <div class="input-group">
+                <label>E-mail</label>
+                <input type="email" id="cad-email" required>
+            </div>
+            <div class="input-group">
+                <label>Senha</label>
+                <input type="password" id="cad-senha" required>
+            </div>
+            <button type="submit" class="btn-lux" style="width: 100%;">Cadastrar</button>
+        </form>
+        <p style="margin-top: 20px; font-size: 0.8rem; text-align: center; color: var(--texto-mutado);">Já possui conta? <a href="login.html" style="color: var(--dourado);">Entre aqui</a></p>
+    </div>
+    <script src="js/auth.js"></script>
+</body>
+</html>

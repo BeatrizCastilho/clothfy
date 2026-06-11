@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estúdio Criativo | Clothfy</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&family=Space+Grotesk:wght@400;500;700&family=Creepster&family=Sedgwick+Ave+Display&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="noise"></div>
+
+    <header>
+        <div class="logo">CLOTHFY</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="catalogo.html">Catálogo</a></li>
+                <li><a href="personalizar.html" class="active">Personalizar</a></li>
+                <li><a href="carrinho.html">Carrinho</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="custom-wrapper">
+        
+        <div class="preview-area">
+            <div class="studio-frame">
+                <div class="clothing-mockup-real" id="mockup-base">
+                    <div id="clothing-shape-container"></div>
+                    
+                    <div class="print-zone">
+                        <i class="fas fa-spider" id="render-icon"></i>
+                        <span id="render-text">REBEL SOUL</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="control-sidebar dashboard-studio">
+            <h2 class="studio-title">SEU ESTÚDIO CRIATIVO</h2>
+            <p class="studio-subtitle">Desenvolva sua peça conceitual em tempo real com precisão industrial.</p>
+
+            <span class="step-title">Step 1: Silhueta / Peça</span>
+            <div class="options-grid item-selector">
+                <button class="grid-btn active" onclick="mudarMolde('moletom', this)">
+                    <i class="fas fa-shirt"></i><span>Hoodie Heavyweight</span>
+                </button>
+                <button class="grid-btn" onclick="mudarMolde('camiseta', this)">
+                    <i class="fas fa-tshirt"></i><span>T-Shirt Boxy</span>
+                </button>
+                <button class="grid-btn" onclick="mudarMolde('jaqueta', this)">
+                    <i class="fas fa-user-shield"></i><span>Jacket Denim</span>
+                </button>
+                <button class="grid-btn" onclick="mudarMolde('shorts', this)">
+                    <i class="fas fa-socks"></i><span>Shorts Street</span>
+                </button>
+            </div>
+
+            <span class="step-title">Step 2: Cor do Tecido</span>
+            <div class="colors-flex padding-box">
+                <div class="color-circle active" style="background: #0A192F;" onclick="mudarCor('#0A192F', this)"></div>
+                <div class="color-circle" style="background: #3B4A34;" onclick="mudarCor('#3B4A34', this)"></div>
+                <div class="color-circle" style="background: #D4AF37;" onclick="mudarCor('#D4AF37', this)"></div>
+                <div class="color-circle" style="background: #321657;" onclick="mudarCor('#321657', this)"></div>
+                <div class="color-circle" style="background: #EAE6DF;" onclick="mudarCor('#EAE6DF', this)"></div>
+                <div class="color-circle" style="background: #5C061C;" onclick="mudarCor('#5C061C', this)"></div>
+                <div class="color-circle" style="background: #0D0D0D;" onclick="mudarCor('#0D0D0D', this)"></div>
+                <div class="color-circle" style="background: #242424;" onclick="mudarCor('#242424', this)"></div>
+            </div>
+
+            <span class="step-title">Step 3: Customização da Frase</span>
+            <div class="control-box-group">
+                <div class="input-container">
+                    <label>Texto da Estampa</label>
+                    <input type="text" id="text-input" value="" maxlength="24" placeholder="Escreva o texto...">
+                </div>
+
+                <div class="dual-row">
+                    <div>
+                        <label>Tipografia / Estilo</label>
+                        <select id="font-selector">
+                            <option value="'Sedgwick Ave Display', cursive" selected>Street Graffiti</option>
+                            <option value="'Cormorant Garamond', serif">Classic Serif</option>
+                            <option value="'Space Grotesk', sans-serif">Modern Tech</option>
+                            <option value="'Creepster', cursive">Gothic Rock</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label>Cor do Texto</label>
+                        <input type="color" id="text-color-picker" value="#EAE6DF">
+                    </div>
+                </div>
+
+                <div class="slider-control">
+                    <label>Tamanho do Texto: <span id="lbl-size-text">2.0rem</span></label>
+                    <input type="range" id="size-text" min="1" max="4.5" step="0.1" value="2.0">
+                </div>
+                <div class="slider-control">
+                    <label>Posição Horizontal (X): <span id="lbl-x-text">0px</span></label>
+                    <input type="range" id="x-text" min="-120" max="120" step="1" value="0">
+                </div>
+                <div class="slider-control">
+                    <label>Posição Vertical (Y): <span id="lbl-y-text">50px</span></label>
+                    <input type="range" id="y-text" min="-180" max="180" step="1" value="50">
+                </div>
+                <div class="slider-control">
+                    <label>Rotação do Texto: <span id="lbl-rot-text">0°</span></label>
+                    <input type="range" id="rot-text" min="-180" max="180" step="2" value="0">
+                </div>
+            </div>
+
+            <span class="step-title">Step 4: Customização do Ícone</span>
+            <div class="control-box-group">
+                <label>Escolha o Elemento</label>
+                <div class="options-grid small-icons">
+                    <button class="grid-btn active" onclick="mudarIcone('fa-spider', this)"><i class="fas fa-spider"></i></button>
+                    <button class="grid-btn" onclick="mudarIcone('fa-skull', this)"><i class="fas fa-skull"></i></button>
+                    <button class="grid-btn" onclick="mudarIcone('fa-bolt', this)"><i class="fas fa-bolt"></i></button>
+                    <button class="grid-btn" onclick="mudarIcone('fa-crown', this)"><i class="fas fa-crown"></i></button>
+                    <button class="grid-btn" onclick="mudarIcone('fa-moon', this)"><i class="fas fa-moon"></i></button>
+                    <button class="grid-btn" onclick="mudarIcone('fa-fire', this)"><i class="fas fa-fire"></i></button>
+                </div>
+
+                <div class="input-container" style="margin-top:15px;">
+                    <label>Cor do Ícone</label>
+                    <input type="color" id="icon-color-picker" value="#D4AF37" style="width:100%; height:40px; border-radius:10px;">
+                </div>
+
+                <div class="slider-control">
+                    <label>Tamanho do Ícone: <span id="lbl-size-icon">4.0rem</span></label>
+                    <input type="range" id="size-icon" min="2" max="8" step="0.1" value="4">
+                </div>
+                <div class="slider-control">
+                    <label>Posição Horizontal (X): <span id="lbl-x-icon">50px</span></label>
+                    <input type="range" id="x-icon" min="-120" max="120" step="1" value="50">
+                </div>
+                <div class="slider-control">
+                    <label>Posição Vertical (Y): <span id="lbl-y-icon">-20px</span></label>
+                    <input type="range" id="y-icon" min="-180" max="180" step="1" value="-20">
+                </div>
+                <div class="slider-control">
+                    <label>Rotação do Ícone: <span id="lbl-rot-icon">0°</span></label>
+                    <input type="range" id="rot-icon" min="-180" max="180" step="2" value="0">
+                </div>
+            </div>
+
+            <div class="action-studio-buttons">
+                <button class="btn-lux" onclick="adicionarAoCarrinho()">ENVIAR AO ESTÚDIO</button>
+                <a href="carrinho.html" class="btn-secondary-studio">VER CARRINHO</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/auth.js"></script>
+    <script src="js/personalizar.js"></script>
+</body>
+</html>
