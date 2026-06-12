@@ -1,3 +1,16 @@
+// ==========================================
+// PROTEÇÃO DE LOGIN
+// ==========================================
+
+const usuarioLogado = localStorage.getItem("usuarioLogado");
+
+if (!usuarioLogado) {
+    alert("Faça login para personalizar produtos.");
+    window.location.href = "login.html";
+}
+
+
+
 // Seletores Globais do Canvas
 const mockupBase = document.getElementById("mockup-base");
 const shapeContainer = document.getElementById("clothing-shape-container");
@@ -139,7 +152,7 @@ function atualizarEstiloTexto() {
 
 function atualizarEstiloIcone() {
     renderIcon.style.fontSize = sizeIcon.value + "rem";
-    renderIcon.style.left = `calc(50% + ${xIconIcon = xIcon.value}px)`;
+    renderIcon.style.left = `calc(50% + ${xIcon.value}px)`;
     renderIcon.style.top = `calc(50% + ${yIcon.value}px)`;
     renderIcon.style.transform = `translate(-50%, -50%) rotate(${rotIcon.value}deg)`;
     
