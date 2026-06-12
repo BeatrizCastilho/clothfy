@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrinho • Clothfy</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        /* Estilos do Modal de Pagamento */
+        .modal-pagamento {
+            display: none; 
+            position: fixed; 
+            top: 0; left: 0; 
+            width: 100%; height: 100%; 
+            background: rgba(0,0,0,0.85); 
+            z-index: 9999; 
+            justify-content: center; 
+            align-items: center; 
+            backdrop-filter: blur(8px);
+        }
+        .modal-conteudo {
+            background: #0f0f12; 
+            border: 1px solid var(--borda-suave, #242424); 
+            border-radius: 24px; 
+            padding: 35px; 
+            text-align: center; 
+            max-width: 380px; 
+            width: 90%;
+            color: #fff;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+        }
+        .box-qrcode {
+            background: white; 
+            padding: 12px; 
+            border-radius: 16px; 
+            display: inline-block; 
+            margin: 20px 0; 
+            width: 200px; height: 200px;
+        }
+        .box-qrcode img { width: 100%; height: 100%; object-fit: contain; }
+        .btn-modal {
+            background: var(--roxo, #7A3FF2);
+            color: white;
+            border: none;
+            padding: 14px 20px;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 15px;
+            transition: 0.3s;
+        }
+        .btn-modal:hover { opacity: 0.9; }
+        .btn-remover {
+            background: transparent;
+            border: none;
+            color: #ff1744;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Seu Carrinho</h1>
+    </header>
+
+    <section class="carrinho-container">
+        
+        <div id="listaProdutos"></div>
+
+        <div class="resumo">
+            <h2>Resumo</h2>
+            <p id="quantidade">0 itens</p>
+            <p id="precoTotal" style="font-weight: bold; font-size: 1.2rem; margin: 15px 0;">Total: R$ 0,00</p>
+            <button id="finalizar">Finalizar Compra</button>
+        </div>
+
+    </section>
+
+    <div class="modal-pagamento" id="modalPix">
+        <div class="modal-conteudo">
+            <h3 style="font-size: 1.6rem; margin-bottom: 5px;">Escaneie o PIX</h3>
+            <p style="color: #888; font-size: 0.85rem;">Aproxime a câmera do seu banco para pagar a sua peça exclusiva.</p>
+            
+            <div class="box-qrcode">
+<img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=00020126360014BR.GOV.BCB.PIX0114%2B55199860063635204000053039865802BR5923Beatriz%20Correa%20Castilho6009SAO%20PAULO6214051028YefZMxG963042BEC" alt="QR Code Pix">
+            <p id="modalPreco" style="font-size: 1.3rem; font-weight: 700; margin-bottom: 20px;">R$ 0,00</p>
+            
+            <button class="btn-modal" id="btnAvancarEnvio">
+                Já paguei, ir para o envio <i class="fas fa-arrow-right" style="margin-left: 5px;"></i>
+            </button>
+        </div>
+    </div>
+
+    <script src="js/carrinho.js"></script>
+
+</body>
+</html>

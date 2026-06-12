@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informações de Envio e Rastreamento</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="css/envio.css">
+</head>
+<body>
+
+    <div id="notificacao-rastreio" class="notificacao hidden">
+        <div class="notificacao-content">
+            <span class="notificacao-icon">📦</span>
+            <p><strong>Envio em andamento!</strong> Seu pedido foi processado. Você já pode acompanhar a sua entrega pelo mapa.</p>
+            <button id="btn-fechar-notificacao" class="btn-fechar">&times;</button>
+        </div>
+    </div>
+
+    <div id="loading-overlay" class="loading-overlay hidden">
+        <div class="loader-box">
+            <div class="spinner"></div>
+            <p>Carregando seu envio...</p>
+        </div>
+    </div>
+
+    <header>
+        <div class="header-nav">
+            <a href="index.html" id="btn-voltar-home" class="btn-voltar">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8"/>
+                </svg>
+                Voltar para a Tela Inicial
+            </a>
+        </div>
+        
+        <h1>Painel de Envios e Logística</h1>
+        <p>Consulte prazos, valores e localize nossa central de distribuição</p>
+    </header>
+
+    <main class="container">
+        <section class="info-section">
+            <div class="card">
+                <h2>Simular Frete e Prazo</h2>
+                <div class="form-group">
+                    <label for="cep">Digite seu CEP:</label>
+                    <input type="text" id="cep" placeholder="00000-000" maxlength="9">
+                    <div class="btn-group">
+                        <button id="btn-calcular">Calcular Envio</button>
+                        <button id="btn-enviar" class="btn-secondary">Enviar</button>
+                    </div>
+                </div>
+                <div id="resultado-frete" class="resultado hidden">
+                    </div>
+            </div>
+
+            <div class="card">
+                <h2>Políticas de Envio da Loja</h2>
+                <ul class="politicas-lista">
+                    <li><strong>Prazo de Postagem:</strong> Até 2 dias úteis após a confirmação do pagamento.</li>
+                    <li><strong>Frete Grátis:</strong> Para compras acima de R$ 199,00 (Região Sudeste).</li>
+                    <li><strong>Rastreamento:</strong> O código é enviado por e-mail em até 24h após a postagem.</li>
+                    <li><strong>Avarias:</strong> Recuse a entrega caso a embalagem esteja violada.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="map-section">
+            <div class="card map-card">
+                <h2>Nossa Cobertura e Centros de Distribuição</h2>
+                <p style="margin-bottom: 1rem; color: var(--text-light);">Clique nos marcadores para ver detalhes das nossas unidades.</p>
+                <div id="map"></div>
+            </div>
+        </section>
+    </main>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="js/envio.js"></script>
+</body>
+</html>
