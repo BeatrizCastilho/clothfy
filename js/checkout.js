@@ -1,4 +1,18 @@
-```javascript
+// ==========================================
+// PROTEÇÃO DE LOGIN
+// ==========================================
+
+const usuarioLogado = localStorage.getItem("usuarioLogado");
+
+if (!usuarioLogado) {
+    alert("Faça login para continuar.");
+    window.location.href = "login.html";
+}
+
+// ==========================================
+// CHECKOUT
+// ==========================================
+
 const resumo =
 document.getElementById(
 "resumoPedido"
@@ -14,8 +28,6 @@ localStorage.getItem(
 carrinho.forEach(item=>{
 
 resumo.innerHTML += `
-
-
 
 `;
 
@@ -37,4 +49,3 @@ window.location.href =
 "index.html";
 
 });
-```
