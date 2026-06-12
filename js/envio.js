@@ -1,3 +1,15 @@
+// ==========================================
+// PROTEÇÃO DE LOGIN
+// ==========================================
+
+const usuarioLogado = localStorage.getItem("usuarioLogado");
+
+if (!usuarioLogado) {
+    alert("Faça login para acessar esta página.");
+    window.location.href = "login.html";
+}
+
+
 window.addEventListener('DOMContentLoaded', () => {
     
     // ==========================================
